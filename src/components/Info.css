@@ -26,6 +26,7 @@ body {
   max-width: 1200px;
   padding: 2rem;
   text-align: center;
+  width: 100%; /* Ensures it fits within smaller screen sizes */
 }
 
 .header {
@@ -138,16 +139,58 @@ body {
   animation-delay: 0.5s;
 }
 
+/* Tablet and smaller screens */
 @media (max-width: 768px) {
   .text-content {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Reduced font size for tablet */
+  }
+
+  .header {
+    font-size: 0.9rem; /* Smaller header for better fit */
+  }
+
+  .subtitle {
+    font-size: 0.8rem; /* Smaller subtitle for tablet */
+  }
+
+  .container {
+    padding: 1rem; /* Reduced padding for better fitting */
   }
 }
 
-/* Section to differentiate the "Learn More About Unmarshal" section */
-.learn-more {
-  margin-top: 15px;
-  font-weight: 100;
-  font-size: small;
-  color: white; /* Text color for better readability */
+/* Mobile screens (350px to 600px) */
+@media (max-width: 600px) {
+  .text-content {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    padding: 0 1rem; /* Add some padding to avoid text going out of bounds */
+  }
+
+  .header {
+    font-size: 0.8rem; /* Smaller header for mobile */
+  }
+
+  .subtitle {
+    font-size: 0.7rem; /* Smaller subtitle for mobile */
+  }
+
+  .learn-more {
+    font-size: 0.8rem; /* Adjust font size for the learn more link */
+  }
+}
+
+/* Very small screens (below 350px) */
+@media (max-width: 350px) {
+  .text-content {
+    font-size: 1.2rem; /* Even smaller font for very small screens */
+  }
+
+  .container {
+    padding: 0.5rem; /* Further reduce padding */
+  }
+
+  .header,
+  .subtitle,
+  .learn-more {
+    font-size: 0.7rem; /* Adjust text size for smaller screens */
+  }
 }

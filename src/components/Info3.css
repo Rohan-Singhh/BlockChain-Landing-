@@ -1,170 +1,234 @@
 /* Global styles */
 :root {
-    --primary-color: #212121;
-    --accent-color: #c6ff00;
-    --text-color: #ffffff;
-    --font-family: system-ui, -apple-system, sans-serif;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    font-family: var(--font-family);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
+  --primary-color: #212121;
+  --accent-color: #c6ff00;
+  --text-color: #ffffff;
+  --font-family: system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  gap: 8rem;
+}
+
+.left-section {
+  flex: 1;
+  padding-top: 2rem;
+}
+
+.stats-label {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.join-now {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.join-now:hover {
+  transform: translateY(-2px);
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.stat-item {
+  position: relative;
+  padding-top: 2rem;
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3rem;
+  right: -3rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.stat-number {
+  font-size: 5rem;
+  font-weight: 500;
+  line-height: 1;
+  display: inline-block;
+}
+
+.stat-suffix {
+  font-size: 5rem;
+  opacity: 0.7;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.requests-served {
+  color: #8b8eff;
+}
+
+.chains-indexed {
+  color: var(--accent-color);
+}
+
+.clients-served {
+  color: #808080;
+}
+
+/* Tablet and Phone Media Queries */
+@media (max-width: 768px) {
   .stats-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    display: flex;
-    gap: 8rem;
-  }
-  
-  .left-section {
-    flex: 1;
-    padding-top: 2rem;
-  }
-  
-  .stats-label {
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 2rem;
-    opacity: 0.7;
-    text-transform: uppercase;
-  }
-  
-  h1 {
-    font-size: 4.5rem;
-    line-height: 1.1;
-    margin-bottom: 3rem;
-    font-weight: 500;
-  }
-  
-  .join-now {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    border: none;
-    padding: 1rem 2.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: transform 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .join-now:hover {
-    transform: translateY(-2px);
-  }
-  
-  .right-section {
-    flex: 1;
-    display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 4rem;
   }
-  
-  .stat-item {
-    position: relative;
-    padding-top: 2rem;
+
+  h1 {
+    font-size: 3rem;
   }
-  
-  .stat-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -3rem;
-    right: -3rem;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  }
-  
-  .stat-label {
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
-    opacity: 0.7;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-  
-  .stat-number {
-    font-size: 5rem;
-    font-weight: 500;
-    line-height: 1;
-    display: inline-block;
-  }
-  
+
+  .stat-number,
   .stat-suffix {
-    font-size: 5rem;
-    opacity: 0.7;
-    display: inline-block;
-    margin-left: 0.5rem;
+    font-size: 3.5rem;
   }
-  
-  #requestsServed {
-    color: #8b8eff;
+
+  .stat-item::before {
+    left: 0;
+    right: 0;
   }
-  
-  #chainsIndexed {
-    color: var(--accent-color);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
   }
-  
-  #clientsServed {
-    color: #808080;
+
+  .stat-number,
+  .stat-suffix {
+    font-size: 2.5rem;
   }
-  
-  @media (max-width: 768px) {
-    .stats-container {
-      flex-direction: column;
-      gap: 4rem;
-    }
-  
-    h1 {
-      font-size: 3rem;
-    }
-  
-    .stat-number,
-    .stat-suffix {
-      font-size: 3.5rem;
-    }
-  
-    .stat-item::before {
-      left: 0;
-      right: 0;
-    }
+
+  .join-now {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.85rem;
   }
-  
-  .info3-container .header {
-    opacity: 0;
-    transition: opacity 0.5s ease-out;
+
+  .stat-item {
+    margin-bottom: 2rem;
   }
-  .info3-container .header.visible {
-    opacity: 1;
+
+  .stats-container {
+    padding: 1rem;
   }
-  .info3-container .hero-text h1,
+}
+
+@media (max-width: 350px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .stat-number,
+  .stat-suffix {
+    font-size: 2rem;
+  }
+
+  .join-now {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    margin: 0 auto; /* Center the button */
+  }
+
+  .left-section {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .right-section {
+    gap: 1.5rem;
+  }
+
+  .stats-container {
+    padding: 1rem;
+  }
+
+  .stat-item {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Animations */
+.info3-container .header {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.info3-container .header.visible {
+  opacity: 1;
+}
+
+.info3-container .hero-text h1,
 .info3-container .hero-text p,
 .info3-container .hero-text button {
   opacity: 1;
   transform: translateY(20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
+
 .info3-container .hero-text.visible h1,
 .info3-container .hero-text.visible p,
 .info3-container .hero-text.visible button {

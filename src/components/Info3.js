@@ -125,6 +125,7 @@ function Info3() {
 
         {/* Features Grid */}
         <div ref={featuresGridRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-24">
+          {/* Feature 1 */}
           <div
             className={`feature space-y-4 ${isFeaturesVisible ? 'visible' : ''}`}
             style={{ transitionDelay: '0s' }}
@@ -149,6 +150,7 @@ function Info3() {
             </p>
           </div>
 
+          {/* Feature 2 */}
           <div
             className={`feature space-y-4 ${isFeaturesVisible ? 'visible' : ''}`}
             style={{ transitionDelay: '0.1s' }}
@@ -171,6 +173,7 @@ function Info3() {
             </p>
           </div>
 
+          {/* Feature 3 */}
           <div
             className={`feature space-y-4 ${isFeaturesVisible ? 'visible' : ''}`}
             style={{ transitionDelay: '0.2s' }}
@@ -196,6 +199,7 @@ function Info3() {
             </p>
           </div>
 
+          {/* Feature 4 */}
           <div
             className={`feature space-y-4 ${isFeaturesVisible ? 'visible' : ''}`}
             style={{ transitionDelay: '0.3s' }}

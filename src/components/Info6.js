@@ -5,8 +5,7 @@ import './Info6.css';  // Import the custom CSS file
 const Info6 = () => {
   return (
     <div className="min-h-screen bg-black text-white">
-
-<div className="badge">BUILD</div>
+      <div className="badge">BUILD</div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-16">

@@ -1,14 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Info2.css'; // Import the CSS file
 
 const Info2 = () => {
-  // Create refs for the stats container and each stat number
+  // State to store the window width for responsiveness
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Refs for the stats container and each stat number
   const statsRef = useRef(null);
   const requestsServedRef = useRef(null);
   const chainsIndexedRef = useRef(null);
   const clientsServedRef = useRef(null);
 
   useEffect(() => {
+    // Update window width on resize
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Set up the resize event listener
+    window.addEventListener('resize', handleResize);
+
     // Set up the Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,6 +43,7 @@ const Info2 = () => {
 
     // Cleanup function to disconnect observer on unmount
     return () => {
+      window.removeEventListener('resize', handleResize);
       observer.disconnect();
     };
   }, []); // Empty dependency array ensures this runs once on mount
@@ -52,11 +64,24 @@ const Info2 = () => {
     window.requestAnimationFrame(step);
   }
 
+  // Dynamically adjust font size and layout based on the window width
+  const getFontSize = () => {
+    if (windowWidth <= 350) {
+      return '1.5rem'; // For small phones
+    } else if (windowWidth <= 600) {
+      return '2rem'; // For larger phones
+    } else if (windowWidth <= 768) {
+      return '2.5rem'; // For tablets
+    } else {
+      return '4.5rem'; // Default for larger screens (desktops)
+    }
+  };
+
   return (
     <div ref={statsRef} className="stats-container">
       <div className="left-section">
         <p className="stats-label">Our Stats So Far</p>
-        <h1>
+        <h1 style={{ fontSize: getFontSize() }}>
           Join The
           <br />
           Community

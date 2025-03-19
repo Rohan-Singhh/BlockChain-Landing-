@@ -116,10 +116,10 @@
 
 .footer-copyright a:hover {
   color: white;
-}
+} /* <-- Added closing curly brace here */
 
 /* Media Queries for Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .footer-links-social {
     grid-template-areas:
       "social"
@@ -142,7 +142,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .newsletter form {
     flex-direction: column;
     gap: 12px;
@@ -151,5 +151,91 @@
   .input-field,
   .submit-btn {
     width: 100%;
+  }
+
+  .footer-links-social {
+    grid-template-areas:
+      "social"
+      "company"
+      "legal";
+    grid-template-columns: 1fr;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+
+  .contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-container {
+    padding-top: 32px;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .text-5xl {
+    font-size: 2rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+  }
+
+  .logo-description p {
+    font-size: 0.875rem;
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .text-5xl {
+    font-size: 1.5rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+  }
+
+  .logo-description p {
+    font-size: 0.75rem;
+  }
+
+  .submit-btn {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+
+  .contact-box {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .newsletter h2 {
+    font-size: 1.875rem;
+  }
+
+  .footer-links-social {
+    grid-template-areas:
+      "social"
+      "company"
+      "legal";
+    grid-template-columns: 1fr;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
   }
 }

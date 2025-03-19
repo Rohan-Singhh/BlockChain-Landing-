@@ -1,8 +1,7 @@
 import React from 'react';
-import { ArrowRight, Database, Network } from 'lucide-react';
-import './Landingpage.css';
+import { ArrowRight, Database } from 'lucide-react';
+
 const LandingPage = () => {
-  // Define the chains array for easier mapping and animation
   const chains = [
     { name: "MANTLE", width: '100px', bold: true },
     { name: "OPTIMISM", width: '130px', bold: true },
@@ -35,7 +34,6 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <main className="relative">
-        {/* Background Elements with animation */}
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-xl animate-bg-element"
@@ -47,7 +45,7 @@ const LandingPage = () => {
           ></div>
         </div>
 
-        {/* Main Content with animations */}
+        {/* Main Content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 text-center">
           <div className="inline-flex items-center bg-gray-800/50 rounded-full px-4 py-1 mb-8 animate-badge">
             <span className="text-[#CDFF00] mr-2">★</span>
@@ -77,7 +75,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-        {/* Supported Chains with animations */}
+        {/* Supported Chains Section */}
         <h3 className="text-center text-gray-500 mb-12 tracking-wider animate-chains-heading">SUPPORTED CHAINS</h3>
         <div className="flex justify-center items-center gap-12 flex-wrap">
           {chains.map((chain, index) => (
