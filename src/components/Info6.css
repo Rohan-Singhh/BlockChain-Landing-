@@ -1,0 +1,59 @@
+/* Info6.css */
+
+/* Custom hover effect for cards */
+.card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02];
+}
+
+/* Styling for the cards */
+.bg-zinc-900 {
+  background-color: #1a1a1a;
+}
+
+.bg-[#d1ff1a] {
+  background-color: #d1ff1a;
+}
+
+/* Styling for card hover effect */
+.card-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Button styling */
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button .group-hover\\:gap-3:hover {
+  gap: 1rem;
+}
+
+/* Header style */
+header {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* Tailwind classes can be extended or overridden here */
+
+
+/* Info6.css */
+
+/* Styling for the centered 'BUILD' badge */
+.badge {
+  background-color: rgba(255, 255, 255, 0.1); /* Light transparent background */
+  padding: 0.5rem 1rem;
+  border-radius: 50px; /* Round corners */
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-left: 580px;
+}

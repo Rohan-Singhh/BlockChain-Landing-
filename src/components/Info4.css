@@ -1,0 +1,121 @@
+/* Info4.css */
+
+/* Global Styles */
+:root {
+  --primary-color: #111111;
+  --accent-color: #DFFE00;
+  --text-color: #ffffff;
+  --font-family: system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styling the content */
+.text-center {
+  text-align: center;
+}
+
+.bg-[#111111] {
+  background-color: #111111;
+}
+
+/* Styling the header */
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-gray-400 {
+  color: #d1d5db;
+}
+
+.text-5xl {
+  font-size: 3rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+/* Button Styling */
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.bg-[#DFFE00] {
+  background-color: #dffe00;
+}
+
+.hover\:bg-\[#CCEB00\]:hover {
+  background-color: #cced00;
+}
+
+/* Grid Layout for Logos */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.md\:grid-cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+/* Animation Styles */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.from-left {
+  transform: translateX(-20px);
+}
+
+.fade-in.from-right {
+  transform: translateX(20px);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
