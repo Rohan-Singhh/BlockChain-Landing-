@@ -6,6 +6,21 @@ const Info = () => {
   const [isVisible, setIsVisible] = useState(false); // State to track visibility
   const infoRef = useRef(null); // Reference to the Info section
   const textRef = useRef(null); // Reference to the text content
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Update window width on resize for dynamic styling if necessary
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,7 +74,7 @@ const Info = () => {
 
       {/* Learn More Section */}
       <div className="learn-more">
-        <p>LEARN MORE ABOUT UNMARSHAL 2.O   &#8594;  </p>
+        <p>LEARN MORE ABOUT UNMARSHAL 2.0 &#8594;</p>
       </div>
     </div>
   );

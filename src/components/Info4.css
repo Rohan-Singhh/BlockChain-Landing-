@@ -119,3 +119,69 @@ button:hover {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* Responsive Design */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-6xl {
+    font-size: 3rem;
+  }
+  
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-cols-8 {
+    grid-template-columns: repeat(6, 1fr); /* 6 columns for tablets */
+  }
+
+  .w-12 {
+    width: 2.5rem; /* Slightly smaller logos */
+  }
+
+  .h-12 {
+    height: 2.5rem; /* Slightly smaller logos */
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+  .text-5xl {
+    font-size: 1.875rem; /* Adjust font size for mobile */
+  }
+
+  .text-6xl {
+    font-size: 2.25rem; /* Adjust font size for mobile */
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for mobile */
+  }
+
+  .grid-cols-8 {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for mobile */
+  }
+
+  .w-12 {
+    width: 2rem; /* Even smaller logos for mobile */
+  }
+
+  .h-12 {
+    height: 2rem; /* Even smaller logos for mobile */
+  }
+
+  /* Padding and margin adjustments for mobile */
+  .text-center {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .max-w-3xl {
+    max-width: 100%; /* Ensure content width adapts to screen */
+  }
+}

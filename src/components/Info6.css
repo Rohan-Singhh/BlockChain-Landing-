@@ -57,3 +57,91 @@ header {
   font-weight: 400;
   margin-left: 580px;
 }
+
+/* Media Queries for Responsiveness */
+
+/* Tablet (600px - 768px) */
+@media (max-width: 768px) {
+  .text-4xl {
+    font-size: 3rem;  /* Smaller font size for mobile */
+  }
+
+  .text-6xl {
+    font-size: 4.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .badge {
+    /* background-color: #fff; */
+    margin-left: 250px; 
+  }
+
+  .container {
+    padding: 8px;
+  }
+
+  /* Adjust card padding for smaller screens */
+  .bg-zinc-900, .bg-[#d1ff1a] {
+    padding: 10px;
+  }
+}
+
+/* Mobile (350px - 600px) */
+@media (max-width: 600px) {
+  .text-4xl {
+    font-size: 2rem;  /* Reduce font size for small screens */
+  }
+
+  .text-6xl {
+    font-size: 3rem;
+  }
+
+  .container {
+    padding: 4px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Stack the cards vertically */
+  }
+
+  .badge {
+    /* display: flex; */
+    display: center;
+    margin-left: 200px;
+    font-size: 1.25rem; /* Smaller badge text */
+  }
+
+  /* Adjust card padding for small screens */
+  .bg-zinc-900, .bg-[#d1ff1a] {
+    padding: 8px;
+  }
+
+  /* Smaller text and tighter layout for buttons */
+  button {
+    font-size: 0.875rem;
+    gap: 0.3rem;
+  }
+
+  .text-[2.5rem] {
+    font-size: 1.8rem; /* Smaller heading for mobile */
+  }
+}
+
+/* Extra Small (350px and below) */
+@media (max-width: 350px) {
+  .text-4xl {
+    font-size: 1.5rem;  /* Further reduce font size for very small screens */
+  }
+
+  .text-[2.5rem] {
+    font-size: 1.5rem; /* Adjust card titles for very small screens */
+  }
+
+  .badge {
+    font-size: 1rem; /* Smaller badge text */
+    margin-left: 180px;
+  }
+}

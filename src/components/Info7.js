@@ -1,4 +1,3 @@
-// Info7.js
 import React, { useState } from 'react';
 import { MessageCircle, Twitter, Github, Disc as Discord, SunMedium as Medium } from 'lucide-react';
 import './Info7.css';
