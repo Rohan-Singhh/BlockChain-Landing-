@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Database } from 'lucide-react';
+import './Landingpage.css';
 
 const LandingPage = () => {
   const chains = [
@@ -75,29 +76,33 @@ const LandingPage = () => {
           </div>
         </div>
 
-        {/* Supported Chains Section */}
-        <h3 className="text-center text-gray-500 mb-12 tracking-wider animate-chains-heading">SUPPORTED CHAINS</h3>
-        <div className="flex justify-center items-center gap-12 flex-wrap">
-          {chains.map((chain, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center animate-chain"
-              style={{ animationDelay: `${1.2 + index * 0.1}s` }}
-            >
-              <span
-                className="text-gray-400 mt-2"
-                style={{
-                  width: chain.width,
-                  textAlign: 'center',
-                  fontSize: '14px',
-                  fontWeight: chain.bold ? 'bold' : 'normal',
-                }}
-              >
-                {chain.name}
-              </span>
-            </div>
-          ))}
-        </div>
+       {/* Supported Chains Section */}
+<h3 className="text-center text-gray-500 mb-12 tracking-wider animate-chains-heading">SUPPORTED CHAINS</h3>
+<div className="flex justify-center items-center gap-12 flex-wrap">
+  {chains.map((chain, index) => (
+    <div
+      key={index}
+      className="flex items-center gap-2 animate-chain"
+      style={{ animationDelay: `${1.2 + index * 0.1}s` }}
+    >
+      <img
+        src="https://s2.loli.net/2023/06/21/Cze29TKLGsAtdng.png"
+        alt={chain.name}
+        className="w-10 h-10" // 40px size
+      />
+      <span
+        className="text-gray-400"
+        style={{
+          fontSize: '14px',
+          fontWeight: chain.bold ? 'bold' : 'normal',
+        }}
+      >
+        {chain.name}
+      </span>
+    </div>
+  ))}
+</div>
+
       </main>
     </div>
   );

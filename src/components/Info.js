@@ -54,26 +54,26 @@ const Info = () => {
   }, []);
 
   return (
-    <div className="container" ref={infoRef}>
-      <div className="header">UNMARSHAL 2.0</div>
-      <div className="subtitle">Blockchain and AI Integration</div>
+    <div className="max-w-screen-lg mx-auto px-4 py-8 text-center" ref={infoRef}>
+      <div className="text-xl tracking-wide mb-2 opacity-0 animate-fadeInDown delay-100">UNMARSHAL 2.0</div>
+      <div className="text-lg text-gray-500 mb-16 opacity-0 animate-fadeInDown delay-300">Blockchain and AI Integration</div>
 
-      <div className="main-content">
-        <div className="text-content" ref={textRef}>
-          <span className="highlight">Unmarshal</span> is
-          <span className="icon">🔸</span>
-          <span className="icon">📊</span>
-          <span className="icon">🔮</span>
+      <div className="opacity-0 animate-fadeInUp delay-600">
+        <div className="text-3xl font-semibold text-gray-300 mb-4 max-w-4xl mx-auto" ref={textRef}>
+          <span className="text-[#f7931a]">Unmarshal</span> is
+          <span className="inline-block transform transition-transform hover:translate-y-1 hover:scale-110 text-[#f7931a]">🔸</span>
+          <span className="inline-block transform transition-transform hover:translate-y-1 hover:scale-110 text-[#f7931a]">📊</span>
+          <span className="inline-block transform transition-transform hover:translate-y-1 hover:scale-110 text-[#f7931a]">🔮</span>
           revolutionizing the intersection of blockchain and artificial intelligence, ushering in a new era of blockchain data indexing
-          <span className="icon arrow">↗️</span>
+          <span className="text-[#00ff00]">↗️</span>
           Our mission is to seamlessly integrate
-          <span className="icon link">🔗</span>
-          these key technologies to unlock new possibilities and drive innovations
+          <span className="text-[#8a8aff]">🔗</span>
+          these key technologies to unlock new possibilities and drive innovations.
         </div>
       </div>
 
       {/* Learn More Section */}
-      <div className="learn-more">
+      <div className="mt-10 text-lg text-gray-500 cursor-pointer hover:text-white transition-colors">
         <p>LEARN MORE ABOUT UNMARSHAL 2.0 &#8594;</p>
       </div>
     </div>
