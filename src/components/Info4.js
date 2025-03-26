@@ -4,91 +4,85 @@ import './Info4.css';  // Import the CSS file
 
 const Info4 = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const gridRef = useRef(null);
 
-  // Array of images with their sources and alt texts
-  const images = [
-    { src: "https://cryptologos.cc/logos/binance-coin-bnb-logo.png", alt: "Binance" },
-    { src: "https://cryptologos.cc/logos/ethereum-eth-logo.png", alt: "Ethereum" },
-    { src: "https://cryptologos.cc/logos/binance-usd-busd-logo.png", alt: "BUSD" },
-    { src: "https://cryptologos.cc/logos/polygon-matic-logo.png", alt: "Polygon" },
-    { src: "https://cryptologos.cc/logos/polkadot-new-dot-logo.png", alt: "Polkadot" },
-    { src: "https://cryptologos.cc/logos/harmony-one-logo.png", alt: "Harmony" },
-    { src: "https://cryptologos.cc/logos/solana-sol-logo.png", alt: "Solana" },
-    { src: "https://cryptologos.cc/logos/iota-miota-logo.png", alt: "IOTA" },
-    { src: "https://cryptologos.cc/logos/tron-trx-logo.png", alt: "Tron" },
-    { src: "https://cryptologos.cc/logos/0x-zrx-logo.png", alt: "0x" },
-    { src: "https://cryptologos.cc/logos/gnosis-gno-gno-logo.png", alt: "Gnosis" },
-    { src: "https://cryptologos.cc/logos/binance-usd-busd-logo.png", alt: "BUSD" },
-    { src: "https://cryptologos.cc/logos/cardano-ada-logo.png", alt: "Cardano" },
-    { src: "https://cryptologos.cc/logos/avalanche-avax-logo.png", alt: "Avalanche" },
-    { src: "https://cryptologos.cc/logos/algorand-algo-logo.png", alt: "Algorand" },
-    { src: "https://cryptologos.cc/logos/polkadot-new-dot-logo.png", alt: "Polkadot" },
+  // Static array of blockchain logos
+  const logos = [
+    { imageUrl: "https://cryptologos.cc/logos/binance-coin-bnb-logo.png", name: "Binance" },
+    { imageUrl: "https://cryptologos.cc/logos/ethereum-eth-logo.png", name: "Ethereum" },
+    { imageUrl: "https://cryptologos.cc/logos/binance-usd-busd-logo.png", name: "BUSD" },
+    { imageUrl: "https://cryptologos.cc/logos/polygon-matic-logo.png", name: "Polygon" },
+    { imageUrl: "https://cryptologos.cc/logos/polkadot-new-dot-logo.png", name: "Polkadot" },
+    { imageUrl: "https://cryptologos.cc/logos/harmony-one-logo.png", name: "Harmony" },
+    { imageUrl: "https://cryptologos.cc/logos/solana-sol-logo.png", name: "Solana" },
+    { imageUrl: "https://cryptologos.cc/logos/binance-usd-busd-logo.png", name: "BUSD" },
+    { imageUrl: "https://cryptologos.cc/logos/tron-trx-logo.png", name: "Tron" },
+    { imageUrl: "https://cryptologos.cc/logos/0x-zrx-logo.png", name: "0x" },
+    { imageUrl: "https://cryptologos.cc/logos/gnosis-gno-gno-logo.png", name: "Gnosis" },
+    { imageUrl: "https://cryptologos.cc/logos/binance-usd-busd-logo.png", name: "BUSD" },
+    { imageUrl: "https://cryptologos.cc/logos/cardano-ada-logo.png", name: "Cardano" },
+    { imageUrl: "https://cryptologos.cc/logos/avalanche-avax-logo.png", name: "Avalanche" },
+    { imageUrl: "https://cryptologos.cc/logos/algorand-algo-logo.png", name: "Algorand" },
+    { imageUrl: "https://cryptologos.cc/logos/ethereum-eth-logo.png", name: "Ethereum" },
   ];
 
   useEffect(() => {
+    // Set visible on initial load with a slight delay
+    setTimeout(() => setIsVisible(true), 100);
+
+    // Set up intersection observer for scroll animation
     const observer = new IntersectionObserver(
       (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stop observing after it’s visible
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
       },
-      { threshold: 0.1 } // Trigger when 10% of the section is visible
+      { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (gridRef.current) {
+      observer.observe(gridRef.current);
     }
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-[#111111] text-white flex flex-col items-center justify-center px-4">
-      <div className="text-center max-w-3xl mx-auto">
-        <p
-          className={`text-sm uppercase tracking-wider mb-6 text-gray-400 fade-in ${isVisible ? 'visible' : ''}`}
-          style={{ transitionDelay: '0s' }}
-        >
-          SUPPORTED BLOCKCHAINS
-        </p>
-        <h1
-          className={`text-5xl md:text-6xl font-normal mb-6 leading-tight fade-in ${isVisible ? 'visible' : ''}`}
-          style={{ transitionDelay: '0.2s' }}
-        >
-          Hear the heartbeat of every chain
-        </h1>
-        <p
-          className={`text-gray-400 text-lg mb-10 max-w-2xl mx-auto fade-in ${isVisible ? 'visible' : ''}`}
-          style={{ transitionDelay: '0.4s' }}
-        >
-          The easiest way to query Blockchain data from 35+ chains including
-          Ethereum, BSC, Polygon™ to *AI Powered Blockchain Data.
-        </p>
-        <button
-          className={`bg-[#DFFE00] text-black px-8 py-3 rounded-full font-medium flex items-center gap-2 mx-auto hover:bg-[#CCEB00] transition-colors fade-in ${isVisible ? 'visible' : ''}`}
-          style={{ transitionDelay: '0.6s' }}
-        >
-          EXPLORE ALL
-          <ArrowRight size={20} />
-        </button>
-        <div
-          className={`mt-20 grid grid-cols-4 md:grid-cols-8 gap-8 max-w-4xl mx-auto`}
-        >
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image.src}
-              alt={image.alt}
-              className={`w-12 h-12 fade-in ${isVisible ? 'visible' : ''} ${
-                index % 2 === 0 ? 'from-left' : 'from-right'
-              }`}
-              style={{ transitionDelay: `${0.8 + index * 0.1}s` }}
-            />
+    <div className="bg-[#111111] py-16">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <div className="inline-block bg-[#1E1E1E] rounded-full px-4 py-1 mb-6">
+            <span className="text-sm uppercase text-gray-400">Supported Blockchains</span>
+          </div>
+          <h2 className="text-6xl font-normal text-white mb-6">
+            Hear the heartbeat of every chain
+          </h2>
+          <p className="text-gray-400 max-w-3xl mx-auto mb-8">
+            The easiest way to query Blockchain data from 35+ chains including
+            <br />
+            Ethereum, BSC, Polygon* to *AI Powered Blockchain Data.
+          </p>
+          <button className="bg-[#DFFE00] hover:bg-[#CCEB00] text-black px-6 py-3 rounded-full inline-flex items-center gap-2">
+            EXPLORE ALL
+            <span>→</span>
+          </button>
+        </div>
+
+        <div className={`logo-grid ${isVisible ? 'is-visible' : ''}`} ref={gridRef}>
+          {logos.map((logo, index) => (
+            <div 
+              key={index} 
+              className={`logo-container ${index % 2 === 0 ? 'from-left' : 'from-right'}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <img
+                src={logo.imageUrl}
+                alt={logo.name}
+                loading="lazy"
+              />
+            </div>
           ))}
         </div>
       </div>

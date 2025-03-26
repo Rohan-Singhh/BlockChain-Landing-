@@ -1,116 +1,107 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
 import './Info2.css'; // Import the CSS file
 
 const Info2 = () => {
-  // State to store the window width for responsiveness
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
   // Refs for the stats container and each stat number
-  const statsRef = useRef(null);
-  const requestsServedRef = useRef(null);
-  const chainsIndexedRef = useRef(null);
-  const clientsServedRef = useRef(null);
+  const requestsRef = useRef(null);
+  const chainsRef = useRef(null);
+  const clientsRef = useRef(null);
 
   useEffect(() => {
-    // Update window width on resize
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+    const animateValue = (ref, start, end, duration) => {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        if (ref.current) {
+          ref.current.textContent = value;
+        }
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
     };
 
-    // Set up the resize event listener
-    window.addEventListener('resize', handleResize);
-
-    // Set up the Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          // Trigger animations when the section is visible
-          animateNumber(requestsServedRef.current, 0, 11, 2000);
-          animateNumber(chainsIndexedRef.current, 0, 35, 2000);
-          animateNumber(clientsServedRef.current, 0, 4100, 2000);
-          // Disconnect observer to prevent re-triggering
-          observer.disconnect();
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateValue(requestsRef, 0, 11, 2000);
+            animateValue(chainsRef, 0, 35, 2000);
+            animateValue(clientsRef, 0, 4100, 2000);
+          }
+        });
       },
-      { threshold: 0.5 } // Trigger when 50% of the element is visible
+      { threshold: 0.1 }
     );
 
-    // Observe the stats container
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
+    if (requestsRef.current) observer.observe(requestsRef.current);
 
-    // Cleanup function to disconnect observer on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      observer.disconnect();
-    };
-  }, []); // Empty dependency array ensures this runs once on mount
-
-  // Function to animate numbers (unchanged)
-  function animateNumber(element, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      const currentNumber = Math.floor(progress * (end - start) + start);
-      element.textContent = currentNumber;
-
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-    };
-    window.requestAnimationFrame(step);
-  }
-
-  // Dynamically adjust font size and layout based on the window width
-  const getFontSize = () => {
-    if (windowWidth <= 350) {
-      return '1.5rem'; // For small phones
-    } else if (windowWidth <= 600) {
-      return '2rem'; // For larger phones
-    } else if (windowWidth <= 768) {
-      return '2.5rem'; // For tablets
-    } else {
-      return '4.5rem'; // Default for larger screens (desktops)
-    }
-  };
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div ref={statsRef} className="stats-container">
-      <div className="left-section">
-        <p className="stats-label">Our Stats So Far</p>
-        <h1 style={{ fontSize: getFontSize() }}>
-          Join The
-          <br />
-          Community
-          <br />
-          Of Million
-        </h1>
-        <button className="join-now">JOIN NOW →</button>
-      </div>
-      <div className="right-section">
-        <div className="stat-item">
-          <p className="stat-label">Requests Served</p>
-          <h2 ref={requestsServedRef} className="stat-number requests-served">
-            0
-          </h2>
-          <p className="stat-suffix">Billion</p>
-        </div>
-        <div className="stat-item">
-          <p className="stat-label">Chains Indexed</p>
-          <h2 ref={chainsIndexedRef} className="stat-number chains-indexed">
-            0
-          </h2>
-          <p className="stat-suffix">+</p>
-        </div>
-        <div className="stat-item">
-          <p className="stat-label">Clients Served</p>
-          <h2 ref={clientsServedRef} className="stat-number clients-served">
-            0
-          </h2>
-          <p className="stat-suffix">+</p>
+    <div className="stats-wrapper">
+      <div className="stats-container">
+        <div className="stats-content">
+          {/* Left Section */}
+          <div className="stats-left">
+            <div className="stats-badge">OUR STATS SO FAR</div>
+            <div className="stats-heading-container">
+              <h1 className="stats-heading">
+                Join The
+              </h1>
+              <h1 className="stats-heading">
+                Community of
+              </h1>
+              <h1 className="stats-heading">
+                 Million
+              </h1>
+            </div>
+            <button className="join-now-btn">
+              JOIN NOW
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
+          </div>
+
+          {/* Right Section - Stats */}
+          <div className="stats-right">
+            <div className="stat-item">
+              <div className="stat-label-line">
+                <span className="stat-label">REQUESTS SERVED</span>
+                <div className="line-decoration"></div>
+              </div>
+              <div className="stat-value requests">
+                <span ref={requestsRef}>0</span>
+                <span className="stat-suffix">Billion</span>
+              </div>
+            </div>
+
+            <div className="stat-item">
+              <div className="stat-label-line">
+                <span className="stat-label">CHAINS INDEXED</span>
+                <div className="line-decoration"></div>
+              </div>
+              <div className="stat-value chains">
+                <span ref={chainsRef}>0</span>
+                <span className="stat-suffix">+</span>
+              </div>
+            </div>
+
+            <div className="stat-item">
+              <div className="stat-label-line">
+                <span className="stat-label">CLIENTS SERVED</span>
+                <div className="line-decoration"></div>
+              </div>
+              <div className="stat-value clients">
+                <span ref={clientsRef}>0</span>
+                <span className="stat-suffix">+</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

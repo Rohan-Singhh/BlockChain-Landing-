@@ -120,32 +120,130 @@ button:hover {
   transform: translateX(0);
 }
 
-/* Responsive Design */
+/* Logo Grid Styling */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
-/* Tablet and smaller screens */
+.logo-grid.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logo-container {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.logo-container.from-right {
+  transform: translateX(50px);
+}
+
+.is-visible .logo-container {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+  transition: transform 0.3s ease;
+}
+
+/* Fade effect for logos */
+.is-visible .logo-container:nth-child(1),
+.is-visible .logo-container:nth-child(2),
+.is-visible .logo-container:nth-child(7),
+.is-visible .logo-container:nth-child(8),
+.is-visible .logo-container:nth-child(9),
+.is-visible .logo-container:nth-child(10),
+.is-visible .logo-container:nth-child(14),
+.is-visible .logo-container:nth-child(15) {
+  opacity: 0.25;
+}
+
+.is-visible .logo-container:nth-child(3),
+.is-visible .logo-container:nth-child(6),
+.is-visible .logo-container:nth-child(11),
+.is-visible .logo-container:nth-child(13) {
+  opacity: 0.5;
+}
+
+/* Middle logos remain fully visible */
+.is-visible .logo-container:nth-child(4),
+.is-visible .logo-container:nth-child(5),
+.is-visible .logo-container:nth-child(12) {
+  opacity: 1;
+}
+
+/* Hover effects */
+.logo-container:hover {
+  opacity: 1 !important;
+  transform: scale(1.1) translateX(0) !important;
+}
+
+/* Animation delays */
+.is-visible .logo-container {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .logo-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    max-width: 800px;
+  }
+  
+  .logo-container {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .text-5xl {
-    font-size: 2.5rem;
-  }
-  
-  .text-6xl {
-    font-size: 3rem;
-  }
-  
-  .grid-cols-4 {
+  .logo-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    max-width: 600px;
   }
-
-  .grid-cols-8 {
-    grid-template-columns: repeat(6, 1fr); /* 6 columns for tablets */
+  
+  .logo-container {
+    width: 2.5rem;
+    height: 2.5rem;
   }
+}
 
-  .w-12 {
-    width: 2.5rem; /* Slightly smaller logos */
+@media (max-width: 480px) {
+  .logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 300px;
   }
-
-  .h-12 {
-    height: 2.5rem; /* Slightly smaller logos */
+  
+  .logo-container {
+    width: 2rem;
+    height: 2rem;
   }
 }
 
@@ -163,8 +261,14 @@ button:hover {
     grid-template-columns: repeat(3, 1fr); /* 3 columns for mobile */
   }
 
-  .grid-cols-8 {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for mobile */
+  .logo-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .logo-container {
+    width: 2rem;
+    height: 2rem;
   }
 
   .w-12 {
