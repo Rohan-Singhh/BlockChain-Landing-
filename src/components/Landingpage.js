@@ -4,106 +4,122 @@ import './Landingpage.css';
 
 const LandingPage = () => {
   const chains = [
-    { name: "MANTLE", width: '100px', bold: true },
-    { name: "OPTIMISM", width: '130px', bold: true },
-    { name: "Manta Network", width: '83px', bold: false },
-    { name: "Partsia Blockchain", width: '97px', bold: false },
-    { name: "Polygon zkEVM", width: '116px', bold: false },
+    { name: "MANTLE", logo: "https://cryptologos.cc/logos/mantle-mnt-logo.png", bold: true },
+    { name: "OPTIMISM", logo: "https://cryptologos.cc/logos/polygon-matic-logo.png", bold: true },
+    { name: "Manta Network", logo: "https://cryptologos.cc/logos/polygon-matic-logo.png", bold: false },
+    { name: "Partisia Blockchain", logo: "https://cryptologos.cc/logos/polygon-matic-logo.png", bold: false },
+    { name: "Polygon zkEVM", logo: "https://cryptologos.cc/logos/polygon-matic-logo.png", bold: false },
+  ];
+
+  const backgroundLogos = [
+    "https://cryptologos.cc/logos/polygon-matic-logo.png",
+    "https://cryptologos.cc/logos/polygon-matic-logo.png",
+    "https://cryptologos.cc/logos/polygon-matic-logo.png",
+    "https://cryptologos.cc/logos/polygon-matic-logo.png",
+    "https://cryptologos.cc/logos/polygon-matic-logo.png"
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="bg-black text-white relative">
+      {/* Background Logos */}
+      <div className="background-logos">
+        {backgroundLogos.map((logo, index) => (
+          <img 
+            key={index} 
+            src={logo} 
+            alt="blockchain" 
+            className={`floating-logo logo-${index}`}
+          />
+        ))}
+      </div>
+
       {/* Navigation */}
-      <nav className="border-b border-gray-800 animate-nav">
+      <nav className="border-none animate-nav relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Database className="h-8 w-8 text-[#CDFF00]" />
               <span className="ml-2 text-xl font-semibold">Unmarshal</span>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-gray-300 hover:text-white">Products</a>
-              <a href="#" className="text-gray-300 hover:text-white">Explorer</a>
-              <a href="#" className="text-gray-300 hover:text-white">Company</a>
-              <button className="bg-transparent border border-white rounded-full px-6 py-2 hover:bg-white hover:text-black transition-colors">
-                Sign In
-              </button>
+            <div className="hidden md:flex items-center bg-[#1a1a1a] rounded-full px-6 py-2">
+              <a href="#" className="text-gray-300 hover:text-white px-4">Products</a>
+              <a href="#" className="text-gray-300 hover:text-white px-4">Unmarshal 2.0</a>
+              <a href="#" className="text-gray-300 hover:text-white px-4">$MARSH</a>
+              <a href="#" className="text-gray-300 hover:text-white px-4">Roadmap</a>
+              <a href="#" className="text-gray-300 hover:text-white px-4">Company</a>
+              <a href="#" className="text-gray-300 hover:text-white px-4">Explorer</a>
             </div>
+            <button className="border border-gray-600 text-white rounded-full px-6 py-2 hover:bg-white hover:text-black transition-colors">
+              Sign In
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <main className="relative">
-        <div className="absolute inset-0 overflow-hidden">
-          <div
-            className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-xl animate-bg-element"
-            style={{ animationDelay: '0s' }}
-          ></div>
-          <div
-            className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-r from-green-500/10 to-yellow-500/10 rounded-full blur-xl animate-bg-element"
-            style={{ animationDelay: '0.2s' }}
-          ></div>
+      {/* Main Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8 text-center">
+        <div className="inline-flex items-center bg-[#1a1a1a] rounded-full px-6 py-2 mb-8 animate-badge relative">
+          <div className="glow-line left"></div>
+          <span className="text-[#CDFF00] mr-2 glow-star">✦</span>
+          <span className="text-sm tracking-wide text-gray-200 glow-text">POWERED BY AI</span>
+          <span className="text-[#CDFF00] ml-2 glow-star">✦</span>
+          <div className="glow-line right"></div>
         </div>
 
-        {/* Main Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 text-center">
-          <div className="inline-flex items-center bg-gray-800/50 rounded-full px-4 py-1 mb-8 animate-badge">
-            <span className="text-[#CDFF00] mr-2">★</span>
-            <span className="text-sm">POWERED BY AI</span>
-            <span className="text-[#CDFF00] ml-2">★</span>
-          </div>
+        <h1 className="text-4xl md:text-6xl font-light mb-6 animate-heading tracking-wide">
+          Most Reliable Blockchain
+          <br />
+          <span className="font-light">Data Infrastructure</span>
+        </h1>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent animate-heading">
-            Most Reliable Blockchain
-            <br />
-            Data Infrastructure
-          </h1>
+        <p className="text-gray-500 text-lg mb-10 max-w-2xl mx-auto animate-paragraph">
+          The easiest way to query Blockchain data from 35+ chains including
+          Ethereum, BSC, Polygon™ to "AI Powered Blockchain Data.
+        </p>
 
-          <p className="text-gray-400 text-xl mb-12 max-w-3xl mx-auto animate-paragraph">
-            The easiest way to query Blockchain data from 35+ chains including
-            Ethereum, BSC, Polygon™ to "AI Powered Blockchain Data.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-buttons">
-            <button className="bg-[#CDFF00] text-black px-8 py-3 rounded-full font-semibold hover:bg-[#BDEF00] transition-colors">
-              PARSER
-            </button>
-            <button className="bg-white text-black px-8 py-3 rounded-full font-semibold flex items-center hover:bg-gray-100 transition-colors">
-              GET STARTED
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-buttons">
+          <button className="bg-[#CDFF00] text-black px-8 py-3 rounded-full font-medium hover:bg-[#BDEF00] transition-colors">
+            PARSER
+          </button>
+          <button className="bg-white text-black px-8 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-gray-100 transition-colors">
+            GET STARTED
+            <ArrowRight className="h-5 w-5" />
+          </button>
         </div>
 
-       {/* Supported Chains Section */}
-<h3 className="text-center text-gray-500 mb-12 tracking-wider animate-chains-heading">SUPPORTED CHAINS</h3>
-<div className="flex justify-center items-center gap-12 flex-wrap">
-  {chains.map((chain, index) => (
-    <div
-      key={index}
-      className="flex items-center gap-2 animate-chain"
-      style={{ animationDelay: `${1.2 + index * 0.1}s` }}
-    >
-      <img
-        src="https://s2.loli.net/2023/06/21/Cze29TKLGsAtdng.png"
-        alt={chain.name}
-        className="w-10 h-10" // 40px size
-      />
-      <span
-        className="text-gray-400"
-        style={{
-          fontSize: '14px',
-          fontWeight: chain.bold ? 'bold' : 'normal',
-        }}
-      >
-        {chain.name}
-      </span>
-    </div>
-  ))}
-</div>
-
-      </main>
+        {/* Supported Chains Section */}
+        <div className="mt-24 relative">
+          <div className="supported-chains-line">
+            <span className="text-gray-500 text-sm tracking-wider bg-black px-4">
+              SUPPORTED CHAINS
+            </span>
+          </div>
+          <div className="flex justify-center items-center gap-12 flex-wrap mt-12">
+            {chains.map((chain, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 animate-chain"
+                style={{ animationDelay: `${1.2 + index * 0.1}s` }}
+              >
+                <img
+                  src={chain.logo}
+                  alt={chain.name}
+                  className="w-8 h-8 opacity-70"
+                />
+                <span
+                  className="text-gray-400"
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: chain.bold ? '500' : '400',
+                  }}
+                >
+                  {chain.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

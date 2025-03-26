@@ -54,9 +54,9 @@ const Info = () => {
   }, []);
 
   return (
-    <div className="max-w-screen-lg mx-auto px-4 py-8 text-center" ref={infoRef}>
+    <div className="max-w-screen-lg mx-auto px-4 py-16 text-center text-white" ref={infoRef}>
       <div className="text-xl tracking-wide mb-2 opacity-0 animate-fadeInDown delay-100">UNMARSHAL 2.0</div>
-      <div className="text-lg text-gray-500 mb-16 opacity-0 animate-fadeInDown delay-300">Blockchain and AI Integration</div>
+      <div className="text-lg text-gray-500 mb-8 opacity-0 animate-fadeInDown delay-300">Blockchain and AI Integration</div>
 
       <div className="opacity-0 animate-fadeInUp delay-600">
         <div className="text-3xl font-semibold text-gray-300 mb-4 max-w-4xl mx-auto" ref={textRef}>
