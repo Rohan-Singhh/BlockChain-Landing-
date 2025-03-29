@@ -29,9 +29,10 @@ const Info2 = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            animateValue(requestsRef, 0, 11, 2000);
-            animateValue(chainsRef, 0, 35, 2000);
-            animateValue(clientsRef, 0, 4100, 2000);
+            // Slower animations for better visual effect
+            animateValue(requestsRef, 0, 11, 2500);
+            animateValue(chainsRef, 0, 35, 2500);
+            animateValue(clientsRef, 0, 4100, 2500);
           }
         });
       },
@@ -72,8 +73,8 @@ const Info2 = () => {
             <div className="stat-item">
               <div className="stat-label-line">
                 <span className="stat-label">REQUESTS SERVED</span>
-                <div className="line-decoration"></div>
               </div>
+              <div className="line-decoration"></div>
               <div className="stat-value requests">
                 <span ref={requestsRef}>0</span>
                 <span className="stat-suffix">Billion</span>
@@ -83,8 +84,8 @@ const Info2 = () => {
             <div className="stat-item">
               <div className="stat-label-line">
                 <span className="stat-label">CHAINS INDEXED</span>
-                <div className="line-decoration"></div>
               </div>
+              <div className="line-decoration"></div>
               <div className="stat-value chains">
                 <span ref={chainsRef}>0</span>
                 <span className="stat-suffix">+</span>
@@ -94,8 +95,8 @@ const Info2 = () => {
             <div className="stat-item">
               <div className="stat-label-line">
                 <span className="stat-label">CLIENTS SERVED</span>
-                <div className="line-decoration"></div>
               </div>
+              <div className="line-decoration"></div>
               <div className="stat-value clients">
                 <span ref={clientsRef}>0</span>
                 <span className="stat-suffix">+</span>
