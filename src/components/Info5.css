@@ -1,7 +1,13 @@
 /* Info5.css */
 
-/* Global Styles */
+/* Base styles with dynamic scaling */
 :root {
+    --container-width: clamp(320px, 90vw, 1440px);
+    --heading-size: clamp(2rem, 5vw, 4rem);
+    --subheading-size: clamp(1.5rem, 3vw, 3rem);
+    --text-size: clamp(0.875rem, 1.2vw, 1rem);
+    --small-text-size: clamp(0.75rem, 1vw, 0.875rem);
+    --spacing-unit: clamp(0.5rem, 2vw, 1rem);
     --neon-green: #c6ff00;
     --dark-bg: #0a0a0a;
     --text-color: #ffffff;
@@ -23,78 +29,79 @@ body {
 }
 
 .container {
-    max-width: 1440px;
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
 }
 
 header {
-    padding: 1rem 0;
+    padding: var(--spacing-unit) 0;
 }
 
 .badge {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
+    padding: clamp(0.375rem, 0.75vw, 0.5rem) clamp(0.75rem, 1.5vw, 1rem);
     border-radius: 100px;
-    font-size: 0.875rem;
+    font-size: var(--small-text-size);
     font-weight: 500;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: var(--heading-size);
     font-weight: 600;
     line-height: 1.2;
-    margin: 3rem 0;
+    margin: clamp(2rem, 4vw, 3rem) 0;
     text-align: center;
 }
 
 .content-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-top: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+    gap: clamp(2rem, 4vw, 4rem);
+    margin-top: clamp(2rem, 4vw, 4rem);
 }
 
 .left-content {
-    padding-right: 2rem;
+    padding-right: clamp(1rem, 2vw, 2rem);
 }
 
 .feature-badge {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
+    padding: clamp(0.375rem, 0.75vw, 0.5rem) clamp(0.75rem, 1.5vw, 1rem);
     border-radius: 100px;
-    font-size: 0.875rem;
-    margin-bottom: 1.5rem;
+    font-size: var(--small-text-size);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: var(--subheading-size);
     font-weight: 600;
     line-height: 1.2;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .features {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 .feature h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-bottom: var(--spacing-unit);
 }
 
 .feature p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
+    font-size: var(--text-size);
 }
 
 .visualization {
     position: relative;
     height: 100%;
+    min-height: clamp(200px, 40vh, 400px);
 }
 
 .grid {
@@ -103,8 +110,8 @@ h2 {
     height: 100%;
     background: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    border-radius: 20px;
+    background-size: clamp(20px, 4vw, 40px) clamp(20px, 4vw, 40px);
+    border-radius: clamp(10px, 2vw, 20px);
 }
 
 .center-box {
@@ -112,11 +119,11 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
+    width: clamp(40px, 8vw, 80px);
+    height: clamp(40px, 8vw, 80px);
     background-color: var(--neon-green);
-    border-radius: 16px;
-    box-shadow: 0 0 40px var(--neon-green);
+    border-radius: clamp(8px, 1.5vw, 16px);
+    box-shadow: 0 0 clamp(20px, 4vw, 40px) var(--neon-green);
 }
 
 .chain-info {
@@ -124,15 +131,15 @@ h2 {
     bottom: 30%;
     right: 10%;
     background: rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-    border-radius: 12px;
+    padding: clamp(0.75rem, 1.5vw, 1rem);
+    border-radius: clamp(6px, 1.2vw, 12px);
     backdrop-filter: blur(10px);
 }
 
 .chain-badge {
-    font-size: 0.75rem;
+    font-size: clamp(0.65rem, 0.8vw, 0.75rem);
     color: var(--neon-green);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-unit);
 }
 
 .blocks {
@@ -141,12 +148,12 @@ h2 {
 }
 
 .blocks .number {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     font-weight: 600;
 }
 
 .blocks .label {
-    font-size: 0.75rem;
+    font-size: clamp(0.65rem, 0.8vw, 0.75rem);
     opacity: 0.7;
 }
 
@@ -155,10 +162,10 @@ h2 {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
-    height: 100px;
+    width: clamp(140px, 20vw, 200px);
+    height: clamp(70px, 10vw, 100px);
     background: linear-gradient(to bottom, rgba(198, 255, 0, 0.2), rgba(198, 255, 0, 0.05));
-    border-radius: 100px 100px 0 0;
+    border-radius: clamp(50px, 10vw, 100px) clamp(50px, 10vw, 100px) 0 0;
 }
 
 .glow {
@@ -166,161 +173,105 @@ h2 {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 160px;
-    height: 40px;
+    width: clamp(120px, 16vw, 160px);
+    height: clamp(20px, 4vw, 40px);
     background: var(--neon-green);
-    filter: blur(40px);
+    filter: blur(clamp(20px, 4vw, 40px));
     opacity: 0.3;
 }
 
-/* Tablet & Phone Responsiveness */
-@media (max-width: 1024px) {
-    h1 {
-        font-size: 3rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-    }
-
+/* Responsive adjustments */
+@media (max-width: 768px) {
     .content-wrapper {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    .visualization {
-        height: 400px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 600px) {
-    /* Adjust layout for small devices */
-    h1 {
-        font-size: 2rem;
-        text-align: left;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    .content-wrapper {
-        grid-template-columns: 1fr;
-        gap: 1rem;
     }
 
     .left-content {
         padding-right: 0;
     }
 
-    .feature h3 {
-        font-size: 1.1rem;
-    }
-
-    .feature p {
-        font-size: 0.9rem;
-    }
-
     .visualization {
-        height: 300px;
+        min-height: 300px;
     }
 
     .grid {
         background-size: 30px 30px;
     }
 
-    .center-box {
-        width: 60px;
-        height: 60px;
-    }
-
     .chain-info {
         bottom: 20%;
         right: 5%;
-        padding: 0.8rem;
-    }
-
-    .chain-badge {
-        font-size: 0.65rem;
-    }
-
-    .blocks .number {
-        font-size: 1.3rem;
-    }
-
-    .cylinder {
-        width: 160px;
-        height: 80px;
     }
 }
 
-@media (max-width: 350px) {
-    /* Adjust for very small devices */
+/* Small height screens */
+@media (max-height: 600px) {
+    .container {
+        padding: 0.5rem;
+    }
+
     h1 {
         font-size: 1.75rem;
+        margin: 1rem 0;
     }
 
     h2 {
         font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .content-wrapper {
-        padding: 0.5rem;
-    }
-
-    .feature h3 {
-        font-size: 1rem;
-    }
-
-    .feature p {
-        font-size: 0.8rem;
+        gap: 1rem;
+        margin-top: 2rem;
     }
 
     .visualization {
-        height: 250px;
+        min-height: 200px;
     }
 
-    .grid {
-        background-size: 20px 20px;
+    .feature h3 {
+        font-size: 0.9rem;
     }
 
-    .center-box {
-        width: 50px;
-        height: 50px;
+    .feature p {
+        font-size: 0.75rem;
     }
+}
 
-    .chain-info {
-        bottom: 10%;
-        right: 2%;
-        padding: 0.6rem;
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
     }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
 
-    .chain-badge {
-        font-size: 0.6rem;
-    }
+.visualization {
+    animation: float 6s ease-in-out infinite;
+}
 
-    .blocks .number {
-        font-size: 1.1rem;
-    }
+/* Hover effects */
+.feature:hover {
+    transform: translateX(10px);
+    transition: transform 0.3s ease;
+}
 
-    .cylinder {
-        width: 140px;
-        height: 70px;
-    }
+/* Prevent text overflow */
+h1, h2 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Smooth transitions */
+.transition-transform {
+    transition: transform 0.3s ease;
 }
 
 /* Custom Styles for Badge */
@@ -459,18 +410,6 @@ h2 {
   height: auto;
   object-fit: contain;
   animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
 }
 
 /* Remove old visualization styles */
